@@ -1,0 +1,18 @@
+public class MobileKeypad {
+    public static String convertSentence(String str) {
+        String[] keypad = { "2", "22", "222", "3", "33", "333", "4", "44", "444", "5", "55", "555",
+                            "6", "66", "666", "7", "77", "777", "7777", "8", "88", "888", "9", "99", "999", "9999" };
+
+        StringBuilder result = new StringBuilder();
+        for (char c : str.toCharArray()) {
+            if (c == ' ') result.append("0");
+            else result.append(keypad[c - 'A']);
+        }
+        return result.toString();
+    }
+
+    public static void main(String[] args) {
+        String sentence = "GEEKS FOR GEEKS";
+        System.out.println("Keypad sequence: " + convertSentence(sentence));
+    }
+}
