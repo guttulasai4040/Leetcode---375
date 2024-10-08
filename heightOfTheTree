@@ -1,0 +1,35 @@
+class TreeNode {
+    int data;
+    TreeNode left, right;
+
+    public TreeNode(int item) {
+        data = item;
+        left = right = null;
+    }
+}
+
+public class BinaryTreeHeight {
+    TreeNode root;
+
+    // Method to calculate height of a binary tree
+    public int height(TreeNode node) {
+        if (node == null) return 0;
+
+        // Find the height of left and right subtrees, and add 1 for the current node
+        return Math.max(height(node.left), height(node.right)) + 1;
+    }
+
+    public static void main(String[] args) {
+        BinaryTreeHeight tree = new BinaryTreeHeight();
+
+        // Constructing the binary tree
+        tree.root = new TreeNode(1);
+        tree.root.left = new TreeNode(2);
+        tree.root.right = new TreeNode(3);
+        tree.root.left.left = new TreeNode(4);
+        tree.root.right.left = new TreeNode(5);
+
+        // Output the height of the binary tree
+        System.out.println("Height of the Tree: " + tree.height(tree.root));
+    }
+}
