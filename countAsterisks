@@ -1,0 +1,16 @@
+public class Solution {
+    public int countAsterisks(String s) {
+        boolean betweenBars = false;
+        int count = 0;
+
+        for (char c : s.toCharArray()) {
+            if (c == '|') {
+                betweenBars = !betweenBars; // Toggle bar state
+            } else if (c == '*' && !betweenBars) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+}
